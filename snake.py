@@ -27,6 +27,15 @@ class Snake:
         timmy.goto(i)
         self.segments.append(timmy)
 
+    def reset_snake(self):
+        for i in self.segments:
+            i.goto(1000,100)
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+        self.head.shape("snakehead_small.gif")
+        self.head.shapesize(stretch_wid=0.5, stretch_len=0.5)
+
     def extend_snake(self):
         self.add_segments(self.segments[-1].position())
 
